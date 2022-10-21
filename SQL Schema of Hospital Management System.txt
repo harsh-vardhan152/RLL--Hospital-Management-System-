@@ -1,0 +1,108 @@
+create database hospitalmanagement;
+use hospitalmanagement;
+
+create table admin_sign_up(
+  id int auto_increment primary key;
+  email_id varchar(255);
+  password varchar(255);
+  user_name varchar(255);
+  
+  
+);
+insert into admin_sign_up values(1,"anu@gmail.com","Anu","anu123");
+insert into admin_sign_up values(2,"ram@gmail.com","Ram","ram123");
+insert into admin_sign_up values(3,"yazhini@gmail.com","Yazhini","yazh123");
+
+---------------------------------------------------------------
+create table appointments(
+  ap_id int auto_increment primary key;
+  address varchar(255);
+  ap_date varchar(255);
+  ap_time varchar(255);
+  d_name varchar(255);
+  disease varchar(255);
+  gender varchar(255);
+  p_name varchar(255);
+  
+);
+
+insert into appointments values(1,"Trichy","10/18/2022","05:00:00","Sidh","Fever","Male","Karthi");
+insert into appointments values(2,"Chennai","10/19/2022","09:00:00","Arun","Cold","Female","Swetha");
+insert into appointments values(3,"Madurai","10/20/2022","06:00:00","Bharathi","Fever","Male","Vasanth");
+insert into appointments values(3,"Coimbator","10/21/2022","10:00:00","Vijay","Malaria Fever","Male","kamal");
+---------------------------------------------------------------------------------------------
+create table dischargedpatient(
+    d_id int auto_increment primary key,
+    confirm varchar(255),
+    d_date varchar(255),
+    d_name varchar(255),
+    d_time varchar(255),
+    disease varchar(255),
+    p_name varchar(255)
+);
+
+insert into dischargedpatient values(1,"Yes","18/10/2022","Vijay","09:00:00","Malaria Fever","kamal");
+insert into dischargedpatient values(2,"Yes","19/10/2022","Bharathi","09:00:00","Fever","Vasanth");
+------------------------------------------------------------------------------------------------
+create table doctor(
+	d_id int auto_increment primary key,
+	accept varchar(255),
+	address varchar(255),
+	contact_no varchar(255),
+	d_name varchar(255),
+ 	experiance varchar(255),
+	gender varchar(255),
+	password varchar(255),
+	salary varchar(255),
+	specialization varchar(255),
+	username varchar(255) 
+);
+
+insert into doctor (d_id, address, contact_no, d_name, experiance, gender, password, specialization, username) 
+                   values(1,"Chennai","9876543210","Vijay","6yrs","Male","Vijay123","Cardiology","Vijay");
+insert into doctor (d_id, address, contact_no, d_name, experiance, gender, password, specialization, username)
+                   values(2,"Coimbator","987654865","Arun","5yrs","Male","Arun123","Neurology","Arun");
+insert into doctor (d_id, address, contact_no, d_name, experiance, gender, password, specialization, username)
+                   values(3,"Delhi","9876543123","Sidth","10yrs","Male","Sidth123","General surgery","Sidth");
+insert into doctor (d_id, address, contact_no, d_name, experiance, gender, password, specialization, username)
+                   values(4,"Mumbai","9876543435","Bharathi","15yrs","Female","Bharathi123","Dermatology","Bharathi");
+-------------------------------------------------------------------------------------------
+
+create table patient(
+    username varchar(255),
+    password varchar(255),
+    p_id int auto_increment primary key,
+    p_contact_no varchar(255),
+    p_gender varchar(255),
+    p_name varchar(255),
+    accept varchar(255)
+);
+
+insert into patient (username,password,p_id,p_contact_no,p_gender,p_name) values("Vasanth","vasanth@123",1,"6958741236","Male","Arun");
+insert into patient (username,password,p_id,p_contact_no,p_gender,p_name) values("Karthi","karthi20@123",2,"6958652236","Male","Vijay");
+insert into patient (username,password,p_id,p_contact_no,p_gender,p_name) values("Kamal","kamal12@123",3,"6989641236","Male","Bharathi");
+----------------------------------------------------------------------------------------------
+
+create table feedback(
+    feedback_id int auto_increment primary key,
+    d_name varchar(255),
+    p_comments varchar(255),
+    p_id int,
+    p_name varchar(255)
+);
+
+insert into feedback("1","Vijay","Good care","1","Karthi");
+insert into feedback("2","Bharathi","Service can be imporved","3","Kamal");
+insert into feedback("3","Arun","Hospital Environment can be imporved","1","Vasanth");
+
+----------------------------------------------------------------------------------------
+
+show tables;
+
+select * from admin_sign_up;
+select * from appointments;
+select * from dischargedpatient;
+select * from doctor;
+select * from feedback;
+select * from patient;
+
